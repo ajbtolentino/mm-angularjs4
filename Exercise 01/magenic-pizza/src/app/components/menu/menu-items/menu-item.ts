@@ -1,4 +1,4 @@
-export class ItemComponent {
+export class MenuItem {
   id: number;
   name: string;
   price: number;

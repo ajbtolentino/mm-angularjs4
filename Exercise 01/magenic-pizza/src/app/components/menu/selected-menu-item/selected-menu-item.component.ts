@@ -1,5 +1,6 @@
-import { MenuItemsComponent } from './../menu-items/menu-items.component';
-import { Component, OnInit } from '@angular/core';
+import { MenuItem } from './../menu-items/menu-item';
+import { PizzaSize } from './pizza-size';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-selected-menu-item',
@@ -7,12 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./selected-menu-item.component.css']
 })
 export class SelectedMenuItemComponent implements OnInit {
-  menuItem: MenuItemsComponent;
-  size: number;
+  @Input() selectedPizza: MenuItem;
+  @Output() notify: EventEmitter<PizzaSize> = new EventEmitter<PizzaSize>();
+
+  pizzaSizes: PizzaSize[];
+  selectedPizzaSize: PizzaSize;
 
   constructor() { }
 
   ngOnInit() {
+    this.pizzaSizes = [
+      new PizzaSize(9, "Regular (9\")", 1),
+      new PizzaSize(12, "Family (12\")", 1.25),
+      new PizzaSize(14, "Party (14\")", 1.5)
+    ]
+
+    this.selectedPizzaSize = this.pizzaSizes[0];
   }
 
+  onAddPizzaClicked(): void {
+    this.notify.emit(this.selectedPizzaSize);
+  }
+
+  onSelectionChange(size: PizzaSize): void {
+      this.selectedPizzaSize = size;
+  }
 }

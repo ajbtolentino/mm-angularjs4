@@ -1,5 +1,5 @@
 import { DeliveryComponent } from './../shopping-cart/delivery/delivery.component';
-import { CartItemComponent } from './../shopping-cart/cart-item/cart-item.component';
+import { ShoppingCartItem } from './../shopping-cart/shopping-cart-item';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class OrderSummaryComponent implements OnInit {
-  cartItems: CartItemComponent[];
+  cartItems: ShoppingCartItem[];
   delivery: DeliveryComponent;
 
   constructor() { }

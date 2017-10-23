@@ -1,1 +1,16 @@
-<button >Add Pizza</button>
+<ul>
+  <li *ngFor="let size of pizzaSizes; let idx = index">
+    <label><input type="radio"
+            name="size"
+            ng-model="selectedPizzaSize"
+            value="{{size}}"
+            [checked]="this.selectedPizzaSize.name === size.name"
+            (change)="onSelectionChange(size)">{{size.name}}</label>
+  </li>
+</ul>
+
+
+<p>{{selectedPizza?.name}}</p>
+<p>{{selectedPizza?.price * selectedPizzaSize.multiplier | currency:"PHP"}}</p>
+<img src="{{selectedPizza?.image}}">
+<button (click)="onAddPizzaClicked()" ng-disabled="selectedPizza != undefined">Add Pizza</button>

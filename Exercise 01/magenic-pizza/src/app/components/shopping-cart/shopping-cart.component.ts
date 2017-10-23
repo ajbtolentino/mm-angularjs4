@@ -1,4 +1,4 @@
-import { CartItemComponent } from './cart-item/cart-item.component';
+import { ShoppingCartItem } from './shopping-cart-item';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ShoppingCartComponent implements OnInit {
-  cartItems: CartItemComponent[];
+  cartItems: ShoppingCartItem[];
 
   constructor() { }
 
