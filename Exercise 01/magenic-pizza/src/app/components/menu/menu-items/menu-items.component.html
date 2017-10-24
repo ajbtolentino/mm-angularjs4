@@ -1,5 +1,1 @@
-<ul>
-  <li *ngFor="let item of items">
-    <button (click)="onSelectedPizza(item)" >{{item.name}}</button>
-  </li>
-</ul>
+<button type="button" class="btn btn-primary btn-lg btn-block" (click)="onSelectedPizza()" >{{this.item.name}}</button>

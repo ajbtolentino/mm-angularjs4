@@ -1,13 +1,16 @@
 export class MenuItem {
   id: number;
   name: string;
+  description: string;
   price: number;
   image: string;
 
-  constructor(id, name, price) {
+  constructor(id, name, price, description, image) {
       this.id = id;
       this.name = name;
       this.price = price;
+      this.description = description;
+      this.image = image;
   }
 
   ngOnInit() {

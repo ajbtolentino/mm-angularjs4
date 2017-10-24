@@ -1,11 +1,13 @@
-import { MenuItem } from './../menu/menu-items/menu-item';
+import { PizzaSize } from './../pizza-size';
+import { MenuItem } from '../menu-item';
 
 export class ShoppingCartItem {
   item: MenuItem;
-  size: string;
+  size: PizzaSize;
   quantity: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

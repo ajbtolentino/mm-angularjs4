@@ -1,3 +1,12 @@
-<h2>Menu</h2>
-<app-menu-items (notify)="onPizzaSelected($event)"></app-menu-items>
-<app-selected-menu-item [selectedPizza]="this.selectedPizza" (notify)="onAddPizzaClicked($event)"></app-selected-menu-item>
+<div class="row">
+  <h3>Menu</h3>
+  <div *ngFor="let item of items" class="col-md-4">
+    <p><app-menu-items [item]="item" (notify)="onPizzaSelected($event)"></app-menu-items></p>
+  </div>
+</div>
+<br/>
+<div class="row" *ngIf="this.selectedPizza != undefined">
+  <div class="col-md-12">
+    <app-selected-menu-item [selectedPizza]="this.selectedPizza" (notify)="onAddPizzaClicked($event)"></app-selected-menu-item>
+  </div>
+</div>

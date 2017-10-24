@@ -1,16 +1,34 @@
-<ul>
-  <li *ngFor="let size of pizzaSizes; let idx = index">
-    <label><input type="radio"
-            name="size"
-            ng-model="selectedPizzaSize"
-            value="{{size}}"
-            [checked]="this.selectedPizzaSize.name === size.name"
-            (change)="onSelectionChange(size)">{{size.name}}</label>
-  </li>
-</ul>
+<div class="btn-group pull-right" data-toggle="buttons">
+    <label class="btn btn-success" *ngFor="let size of pizzaSizes; let idx = index"
+          [ngClass]="this.selectedPizzaSize.name == size.name ? 'active' : ''"
+          (click)="onSelectionChange(size)">
+        <input type="radio"
+            name="test"
+            ng-model="this.selectedPizzaSize"
+            [checked]="this.selectedPizzaSize.name === size.name">{{size.name}}
+      </label>
+</div>
 
+<div class="row">
+        <div class="col-md-6">
+          <h3>{{selectedPizza?.name}}</h3>
+        </div>
+        <div class="col-md-6">
+          <h4 class="pull-right">{{selectedPizza?.price * selectedPizzaSize.multiplier | currency:"Php"}}</h4>
+        </div>
+</div>
 
-<p>{{selectedPizza?.name}}</p>
-<p>{{selectedPizza?.price * selectedPizzaSize.multiplier | currency:"PHP"}}</p>
-<img src="{{selectedPizza?.image}}">
-<button (click)="onAddPizzaClicked()" ng-disabled="selectedPizza != undefined">Add Pizza</button>
+<div class="row">
+  <div class="col-md-6">
+    <h5>{{selectedPizza?.description}}</h5>
+  </div>
+  <div class="col-md-6 ">
+      <div class="row">
+        <img class="pull-right" src="{{selectedPizza?.image}}" style="height: 100px">
+      </div>
+      <br/>
+      <p>
+          <button type="button" class="btn btn-danger btn-lg pull-right"(click)="onAddPizzaClicked()" ng-disabled="selectedPizza != undefined">Add Pizza</button>
+      </p>
+  </div>
+</div>
