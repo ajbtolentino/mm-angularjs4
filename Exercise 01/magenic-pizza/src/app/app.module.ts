@@ -7,7 +7,6 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { MenuItemsComponent } from './components/menu/menu-items/menu-items.component';
 import { SelectedMenuItemComponent } from './components/menu/selected-menu-item/selected-menu-item.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
-import { ItemComponent } from './components/menu/menu-item/item/item.component';
 import { DeliveryComponent } from './components/shopping-cart/delivery/delivery.component';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { DeliveryComponent } from './components/shopping-cart/delivery/delivery.
     MenuItemsComponent,
     SelectedMenuItemComponent,
     OrderSummaryComponent,
-    ItemComponent,
     DeliveryComponent
   ],
   imports: [
