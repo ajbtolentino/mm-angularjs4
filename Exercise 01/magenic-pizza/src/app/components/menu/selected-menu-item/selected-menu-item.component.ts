@@ -1,5 +1,5 @@
-import { MenuItem } from './../../menu-item';
-import { PizzaSize } from '../../pizza-size';
+import { MenuItem } from '../../../@shared/models/menu-item';
+import { PizzaSize } from '../../../@shared/models/pizza-size';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

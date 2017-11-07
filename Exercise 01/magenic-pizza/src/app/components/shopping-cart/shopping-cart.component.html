@@ -18,20 +18,29 @@
               </div>
           </div>
           <div class="col-md-3 pull-right">
-              <p class=" pull-right">{{(item.size.multiplier * item.item.price) * item.quantity | currency: "Php"}}</p>
+              <p class=" pull-right">{{item.getPrice() | currency: "Php"}}</p>
             </div>
         </div>
     </div>
   </li>
+  <li class="list-group-item">
+      <div class="row">
+          <div class="col-md-6">
+            <h3>Total: </h3>
+          </div>
+          <div class="col-md-6">
+            <h3 class="pull-right">{{totalPrice | currency: "Php"}}</h3>
+          </div>
+        </div>
+  </li>
 </ul>
 
-<div *ngIf="this.cartItems?.length > 0" class="col-md-12">
+  <div *ngIf="this.cartItems?.length > 0" class="col-md-12">
     <app-delivery>
-
     </app-delivery>
-      <p>
-          <button class="btn btn-danger btn-lg pull-right">Order Now</button>
-      </p>
+    <p>
+        <button class="btn btn-danger btn-lg pull-right">Order Now</button>
+    </p>
   </div>
 </div>
 

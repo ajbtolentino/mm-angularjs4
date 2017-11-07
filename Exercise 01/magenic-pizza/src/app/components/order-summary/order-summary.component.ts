@@ -1,5 +1,5 @@
 import { DeliveryComponent } from './../shopping-cart/delivery/delivery.component';
-import { ShoppingCartItem } from './../shopping-cart/shopping-cart-item';
+import { ShoppingCartItem } from '../../@shared/models/shopping-cart-item';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

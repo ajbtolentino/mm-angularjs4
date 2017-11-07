@@ -1,4 +1,4 @@
-import { MenuItem } from '../../menu-item';
+import { MenuItem } from '../../../@shared/models/menu-item';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

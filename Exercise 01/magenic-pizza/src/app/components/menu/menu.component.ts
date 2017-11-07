@@ -1,6 +1,6 @@
-import { ShoppingCartItem } from './../shopping-cart/shopping-cart-item';
-import { MenuItem } from './../menu-item';
-import { PizzaSize } from './../pizza-size';
+import { ShoppingCartItem } from '../../@shared/models/shopping-cart-item';
+import { MenuItem } from '../../@shared/models/menu-item';
+import { PizzaSize } from '../../@shared/models/pizza-size';
 import { SelectedMenuItemComponent } from './selected-menu-item/selected-menu-item.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';

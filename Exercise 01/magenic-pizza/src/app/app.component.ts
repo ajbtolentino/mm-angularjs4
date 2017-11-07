@@ -1,6 +1,6 @@
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { ShoppingCartItem } from './components/shopping-cart/shopping-cart-item';
-import { Component,ViewChild } from '@angular/core';
+import { ShoppingCartItem } from './@shared/models/shopping-cart-item';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ export class AppComponent {
 
   title = 'app';
 
-  onAddPizza(cartItem: ShoppingCartItem): void{
+  onAddPizza(cartItem: ShoppingCartItem): void {
       this.cart.addItem(cartItem);
   }
 }
