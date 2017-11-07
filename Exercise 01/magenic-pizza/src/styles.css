@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-image: url("https://cindyspizza.com/wp-content/uploads/2014/01/background.jpg");
+  background-color: grey !important;
+  color: white !important;
+}

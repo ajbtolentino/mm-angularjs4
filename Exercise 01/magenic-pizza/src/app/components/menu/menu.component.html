@@ -1,5 +1,9 @@
 <div class="row">
-  <h3>Menu</h3>
+  <div class="col-md-12">
+    <h3>Menu</h3>
+  </div>
+</div>
+<div class="row">
   <div *ngFor="let item of items" class="col-md-4">
     <p><app-menu-items [item]="item" (notify)="onPizzaSelected($event)"></app-menu-items></p>
   </div>

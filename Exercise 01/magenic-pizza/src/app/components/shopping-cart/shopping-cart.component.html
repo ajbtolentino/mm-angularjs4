@@ -1,46 +1,55 @@
 <div class="row" *ngIf="this.cartItems?.length > 0">
-  <h3>Shopping Cart</h3>
-
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let item of this.cartItems">
-    <div class="d-flex w-100 justify-content-between">
-        <div class="row">
-          <div class="col-md-6">
-            <h5 class="mb-1">{{item.item.name}}</h5>
-            <p>{{item.size.name}}</p>
-          </div>
-          <div class="col-md-6">
-              <div class="input-group col-md-4 pull-right">
-                  <input type="text" class="form-control" [(value)]="item.quantity" (change)="onQuantityChange(item, $event)" >
-                  <span class="input-group-btn" (click)="onRemoveCartItem(item)">
-                    <button class="btn btn-secondary" type="button"><span class="glyphicon glyphicon-remove"></span></button>
-                  </span>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Shopping Cart</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of this.cartItems">
+          <div class="d-flex w-100 justify-content-between">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="mb-1">{{item.item.name}}</h5>
+                  <p>{{item.size.name}}</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group col-md-6 pull-right">
+                        <input type="number" class="form-control bfh-number" min="1" [(value)]="item.quantity" (change)="onQuantityChange(item, $event)" >
+                        <span class="input-group-btn" (click)="onRemoveCartItem(item)">
+                          <button class="btn btn-secondary" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3 pull-right">
+                    <p class=" pull-right">{{item.getPrice() | currency: "Php"}}</p>
+                  </div>
               </div>
           </div>
-          <div class="col-md-3 pull-right">
-              <p class=" pull-right">{{item.getPrice() | currency: "Php"}}</p>
-            </div>
-        </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-6">
+                  <h3>Total: </h3>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="pull-right">{{totalPrice | currency: "Php"}}</h3>
+                </div>
+              </div>
+        </li>
+      </ul>
     </div>
-  </li>
-  <li class="list-group-item">
-      <div class="row">
-          <div class="col-md-6">
-            <h3>Total: </h3>
-          </div>
-          <div class="col-md-6">
-            <h3 class="pull-right">{{totalPrice | currency: "Php"}}</h3>
-          </div>
-        </div>
-  </li>
-</ul>
-
-  <div *ngIf="this.cartItems?.length > 0" class="col-md-12">
-    <app-delivery>
-    </app-delivery>
-    <p>
-        <button class="btn btn-danger btn-lg pull-right">Order Now</button>
-    </p>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div *ngIf="this.cartItems?.length > 0" class="col-md-12">
+        <app-delivery>
+        </app-delivery>
+        <p>
+            <button class="btn btn-danger btn-lg pull-right">Order Now</button>
+        </p>
+      </div>
+    </div>
 </div>
 

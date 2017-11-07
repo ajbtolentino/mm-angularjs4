@@ -1,0 +1,16 @@
+button{
+  background-color: brown;
+  border-color: white;
+}
+
+button:hover{
+  background-color:rgb(201, 66, 66);
+}
+
+button:active{
+  background-color: green;
+}
+
+button:focus{
+  background-color: rgb(97, 26, 26);
+}

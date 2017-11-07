@@ -18,9 +18,9 @@ export class SelectedMenuItemComponent implements OnInit {
 
   ngOnInit() {
     this.pizzaSizes = [
-      new PizzaSize(9, "Regular (9\")", 1),
-      new PizzaSize(12, "Family (12\")", 1.25),
-      new PizzaSize(14, "Party (14\")", 1.5)
+      new PizzaSize(9, 'Regular (9\')', 1),
+      new PizzaSize(12, 'Family (12\')', 1.25),
+      new PizzaSize(14, 'Party (14\')', 1.5)
     ];
 
     this.selectedPizzaSize = this.pizzaSizes[0];
@@ -30,7 +30,11 @@ export class SelectedMenuItemComponent implements OnInit {
     this.selectedPizzaSize = size;
 }
 
-  onAddPizzaClicked():void{
+  onAddPizzaClicked(): void {
     this.notify.emit(this.selectedPizzaSize);
+  }
+
+  getPrice(): number {
+    return this.selectedPizza.price * this.selectedPizzaSize.multiplier;
   }
 }
