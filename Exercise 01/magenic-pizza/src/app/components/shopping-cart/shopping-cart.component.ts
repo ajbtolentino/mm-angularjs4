@@ -1,3 +1,5 @@
+import { CustomLabelDirective } from './../../@shared/directives/custom-label/custom-label.directive';
+import { DeliveryInformation } from './../../@shared/models/delivery-information';
 import { PizzaSize } from '../../@shared/models/pizza-size';
 import { MenuItem } from '../../@shared/models/menu-item';
 import { ShoppingCartItem } from '../../@shared/models/shopping-cart-item';
@@ -11,7 +13,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class ShoppingCartComponent implements OnInit {
   cartItems: ShoppingCartItem[];
+  deliveryInformation: DeliveryInformation;
   totalPrice: number;
+
   constructor() { }
 
   ngOnInit() {

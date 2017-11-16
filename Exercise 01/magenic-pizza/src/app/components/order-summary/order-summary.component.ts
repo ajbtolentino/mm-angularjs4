@@ -1,4 +1,4 @@
-import { DeliveryComponent } from './../shopping-cart/delivery/delivery.component';
+import { DeliveryInformation } from '../../@shared/models/delivery-information';
 import { ShoppingCartItem } from '../../@shared/models/shopping-cart-item';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class OrderSummaryComponent implements OnInit {
   cartItems: ShoppingCartItem[];
-  delivery: DeliveryComponent;
+  deliveryInformation: DeliveryInformation;
 
   constructor() { }
 

@@ -1,10 +1,11 @@
 export class DeliveryInformation {
-  name: string;
-  deliveryTo: string;
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  contactNumber: string;
+  street: string;
+  city: string;
+  zip: string;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

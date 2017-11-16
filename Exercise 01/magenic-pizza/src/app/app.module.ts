@@ -7,7 +7,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { MenuItemsComponent } from './components/menu/menu-items/menu-items.component';
 import { SelectedMenuItemComponent } from './components/menu/selected-menu-item/selected-menu-item.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
-import { DeliveryComponent } from './components/shopping-cart/delivery/delivery.component';
+import { CustomLabelDirective } from './@shared/directives/custom-label/custom-label.directive';
+import { FormatDirective } from './@shared/directives/format/format.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DeliveryComponent } from './components/shopping-cart/delivery/delivery.
     MenuItemsComponent,
     SelectedMenuItemComponent,
     OrderSummaryComponent,
-    DeliveryComponent
+    CustomLabelDirective,
+    FormatDirective
   ],
   imports: [
     BrowserModule
