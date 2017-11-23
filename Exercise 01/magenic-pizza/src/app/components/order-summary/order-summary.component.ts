@@ -1,6 +1,6 @@
 import { DeliveryInformation } from '../../@shared/models/delivery-information';
 import { ShoppingCartItem } from '../../@shared/models/shopping-cart-item';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-order-summary',
@@ -8,13 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-summary.component.css']
 })
 
-export class OrderSummaryComponent implements OnInit {
+export class OrderSummaryComponent {
+  @Output() notify: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   cartItems: ShoppingCartItem[];
-  deliveryInformation: DeliveryInformation;
+  deliveryInformation = new DeliveryInformation();
+  totalPrice: number;
 
-  constructor() { }
-
-  ngOnInit() {
+  onBackClicked(): void {
+    this.notify.emit(true);
   }
 
+  computeTotal(cartItems: ShoppingCartItem[]) {
+    this.cartItems = cartItems;
+
+    let total = 0;
+
+    for (const cartItem of this.cartItems) {
+      total += cartItem.getPrice();
+    }
+
+    this.totalPrice = total;
+  }
 }

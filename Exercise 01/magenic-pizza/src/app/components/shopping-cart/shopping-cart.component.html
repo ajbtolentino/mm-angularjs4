@@ -1,4 +1,4 @@
-<div class="row" *ngIf="this.cartItems?.length > 0">
+<div class="row" *ngIf="this.cartItems?.length > 0  && !submitted">
   <div class="row">
     <div class="col-md-12">
       <h3>Shopping Cart</h3>
@@ -44,31 +44,47 @@
   <div class="row">
     <div class="col-md-12">
       <div *ngIf="this.cartItems?.length > 0" class="col-md-12">
-          <div class="form-group">
-              <label appCustomLabel="First Name"></label><input type="text" class="form-control"/>
-          </div>
-          <div class="form-group">
-              <label appCustomLabel="Last Name"></label><input type="text" class="form-control"/>
-          </div>
-          <div class="form-group">
-              <label appCustomLabel="Email Address"></label><input type="text" class="form-control" placeholder="email@domain.com"/>
-          </div>
-          <div class="form-group">
-              <label appCustomLabel="Contact Number"></label><input type="text" class="form-control" placeholder="(123) 456 7890"/>
-          </div>
-          <div class="form-group">
-              <label appCustomLabel="Street"></label><input type="text" class="form-control" placeholder="i.e. 6788 Ayala Avenue"/>
-          </div>
-          <div class="form-group">
-              <label appCustomLabel="City"></label><input type="text" class="form-control" placeholder="i.e. Makati City"/>
-          </div>
-          <div class="form-group">
-              <label appCustomLabel="Zip"></label><input type="text" class="form-control" placeholder="i.e. IG11 7LZ"/>
-          </div>
-        <p>
-            <button class="btn btn-danger btn-lg pull-right">Order Now</button>
-        </p>
+          <form [formGroup]="formGroup" (ngSubmit) = "onSubmit(formGroup)">
+            <div class="form-group">
+                <label appCustomLabel="First Name"></label><input type="text" class="form-control" formControlName="firstName"/>
+                <div class="alert alert-danger" *ngIf="formGroup.get('firstName').invalid && formGroup.get('firstName').touched">First Name is required</div>
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Last Name"></label><input type="text" class="form-control" formControlName="lastName"/>
+                <div class="alert alert-danger" *ngIf="formGroup.get('lastName').invalid && formGroup.get('lastName').touched">Last Name is required</div>
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Email Address"></label><input type="text" class="form-control" formControlName="emailAddress" placeholder="email@domain.com"/>
+                <div class="alert alert-danger" *ngIf="formGroup.get('emailAddress').invalid && formGroup.get('emailAddress').touched">Required</div>
+                <div class="alert alert-danger" *ngIf="formGroup.get('emailAddress').invalid && formGroup.get('emailAddress').touched">Invalid format</div>
+                {{formGroup.get('emailAddress').errors | json}}
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Contact Number"></label><input appInputValidator [pattern]="this.contactNumberRegex" type="text" class="form-control" formControlName="contactNumber" placeholder="(123) 456 7890"/>
+                <div class="alert alert-danger" *ngIf="formGroup.get('emailAddress').invalid && formGroup.get('emailAddress').touched">Invalid format</div>
+                {{formGroup.get('contactNumber').errors | json}}
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Street"></label><input type="text" class="form-control" formControlName="street" placeholder="i.e. 6788 Ayala Avenue"/>
+                {{formGroup.get('street').errors | json}}
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="City"></label><input type="text" class="form-control" formControlName="city" placeholder="i.e. Makati City"/>
+                {{formGroup.get('city').errors | json}}
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Zip"></label><input appInputValidator [pattern]="this.zipRegex" type="text"  class="form-control" formControlName="zip" placeholder="i.e. IG11 7LZ"/>
+                {{formGroup.get('zip').errors | json}}
+            </div>
+            <p>
+                <button type="submit" class="btn btn-danger btn-lg pull-right" >Order Now</button>
+                {{formGroup.valid | json}}
+            </p>
+          </form>
       </div>
     </div>
+  </div>
 </div>
 
+<app-order-summary (notify)="onBackClicked($event)">
+</app-order-summary>

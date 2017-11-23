@@ -1,3 +1,72 @@
-<p>
-  order-summary works!
-</p>
+<div class="row" *ngIf="cartItems && deliveryInformation">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Order Summary</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of this.cartItems">
+          <div class="d-flex w-100 justify-content-between">
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="mb-1">{{item.item.name}}</p>
+                  <i>{{item.size.name}}</i>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group col-md-6 pull-right">
+                        <p class="pull-right"> {{item.item.price | currency: "Php"}} x {{item.quantity}}</p>
+                    </div>
+                </div>
+                <div class="col-md-3 pull-right">
+                    <label class=" pull-right">{{item.getPrice() | currency: "Php"}}</label>
+                  </div>
+              </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-6">
+                  <h3>Total: </h3>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="pull-right">{{this.totalPrice | currency: "Php"}}</h3>
+                </div>
+              </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-12">
+            <div class="form-group">
+                <label appCustomLabel="First Name"></label><p><i>{{deliveryInformation.firstName}}</i></p>
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Last Name"></label><p><i>{{this.deliveryInformation.lastName}}</i></p>
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Email Address"></label><p><i>{{this.deliveryInformation.emailAddress}}</i></p>
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Contact Number"></label><p><i>{{this.deliveryInformation.contactNumber}}</i></p>
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Street"></label><p><i>{{this.deliveryInformation.street}}</i></p>
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="City"></label><p><i>{{this.deliveryInformation.city}}</i></p>
+            </div>
+            <div class="form-group">
+                <label appCustomLabel="Zip"></label><p><i>{{this.deliveryInformation.zip}}</i></p>
+            </div>
+            <p>
+                <button class="btn btn-warning btn-lg" (click)="onBackClicked()">Back</button>
+                <button class="btn btn-danger btn-lg pull-right">Proceed To Payment</button>
+            </p>
+      </div>
+    </div>
+  </div>
+</div>

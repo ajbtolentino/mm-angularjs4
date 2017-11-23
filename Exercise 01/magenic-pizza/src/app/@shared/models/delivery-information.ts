@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 export class DeliveryInformation {
   firstName: string;
   lastName: string;
@@ -6,6 +7,4 @@ export class DeliveryInformation {
   street: string;
   city: string;
   zip: string;
-
-  constructor() { }
 }

@@ -9,7 +9,4 @@ export class PizzaSize {
       this.multiplier = multiplier;
   }
 
-  ngOnInit() {
-  }
-
 }

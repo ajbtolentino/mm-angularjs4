@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -8,7 +9,6 @@ import { MenuItemsComponent } from './components/menu/menu-items/menu-items.comp
 import { SelectedMenuItemComponent } from './components/menu/selected-menu-item/selected-menu-item.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { CustomLabelDirective } from './@shared/directives/custom-label/custom-label.directive';
-import { FormatDirective } from './@shared/directives/format/format.directive';
 
 @NgModule({
   declarations: [
@@ -18,11 +18,11 @@ import { FormatDirective } from './@shared/directives/format/format.directive';
     MenuItemsComponent,
     SelectedMenuItemComponent,
     OrderSummaryComponent,
-    CustomLabelDirective,
-    FormatDirective
+    CustomLabelDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

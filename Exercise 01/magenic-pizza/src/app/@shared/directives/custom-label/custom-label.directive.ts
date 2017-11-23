@@ -4,11 +4,13 @@ import {  Directive, ElementRef, AfterViewInit, HostListener, HostBinding, Input
   selector: '[appCustomLabel]'
 })
 export class CustomLabelDirective implements AfterViewInit {
-  @Input() appCustomLabel = '';
+  @Input() appCustomLabel: string;
 
   constructor(private el: ElementRef) { }
 
   ngAfterViewInit() {
-    this.el.nativeElement.innerText = this.appCustomLabel;
+    if (this.appCustomLabel) {
+      this.el.nativeElement.innerText = this.appCustomLabel;
+    }
   }
 }

@@ -51,12 +51,12 @@ export class MenuComponent implements OnInit {
     ];
   }
 
-  onPizzaSelected(pizza: MenuItem): void{
+  onPizzaSelected(pizza: MenuItem): void {
       this.selectedPizza = pizza;
   }
 
-  onAddPizzaClicked(size: PizzaSize): void{
-      var item = new ShoppingCartItem();
+  onAddPizzaClicked(size: PizzaSize): void {
+      const item = new ShoppingCartItem();
       item.size = size;
       item.item = this.selectedPizza;
 
